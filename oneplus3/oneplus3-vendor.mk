@@ -105,7 +105,6 @@ PRODUCT_COPY_FILES += \
     vendor/oneplus/oneplus3/proprietary/vendor/etc/init/qcrild.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/qcrild.rc \
     vendor/oneplus/oneplus3/proprietary/vendor/etc/init/vendor.display.color@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.display.color@1.0-service.rc \
     vendor/oneplus/oneplus3/proprietary/vendor/etc/init/vendor.oneplus.hardware.param@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.oneplus.hardware.param@1.0-service.rc \
-    vendor/oneplus/oneplus3/proprietary/vendor/etc/init/vendor.qti.gnss@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.qti.gnss@1.0-service.rc \
     vendor/oneplus/oneplus3/proprietary/vendor/etc/init/vendor.qti.hardware.alarm@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.qti.hardware.alarm@1.0-service.rc \
     vendor/oneplus/oneplus3/proprietary/vendor/etc/init/vendor.qti.hardware.perf@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.qti.hardware.perf@1.0-service.rc \
     vendor/oneplus/oneplus3/proprietary/vendor/etc/init/vendor.qti.hardware.soter@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.qti.hardware.soter@1.0-service.rc \
@@ -166,13 +165,9 @@ PRODUCT_PACKAGES += \
     libmmosal \
     libqmi_cci_system \
     libmmparserextractor \
-    libFNVfbEngineHAL \
     libFileMux \
     libOmxMux \
-    lib_oneplus_md \
-    libmm-qcamera \
     libmmparser_lite \
-    libqomx_core \
     vendor.oneplus.hardware.param@1.0 \
     eglSubDriverAndroid \
     libEGL_adreno \
@@ -235,8 +230,15 @@ PRODUCT_PACKAGES += \
     libthermalclient \
     libtinyxml2_1 \
     sensors.ssc \
+    vendor.qti.gnss@1.0 \
+    vendor.qti.gnss@1.1 \
+    vendor.qti.gnss@1.2 \
+    vendor.qti.gnss@2.0 \
+    vendor.qti.gnss@2.1 \
+    vendor.qti.gnss@3.0 \
     camera.msm8996 \
     sound_trigger.primary.msm8996 \
+    libFNVfbEngineHAL \
     libI420colorconvert \
     libOmxAacDec \
     libOmxAlacDec \
@@ -253,6 +255,7 @@ PRODUCT_PACKAGES += \
     libSensorManagerHAL \
     libSonyIMX298PdafLibrary \
     lib_oneplus_facebeauty \
+    lib_oneplus_md \
     lib_oneplus_watermark \
     libacdb-fts \
     libacdbloader \
@@ -411,6 +414,7 @@ PRODUCT_PACKAGES += \
     libjpegdmahw \
     libjpegehw \
     libmm-color-convertor \
+    libmm-qcamera \
     libmmcamera2_c2d_module \
     libmmcamera2_cpp_module \
     libmmcamera2_frame_algorithm \
@@ -550,6 +554,7 @@ PRODUCT_PACKAGES += \
     libop_zlib \
     libopcamera_crypt \
     libopcamera_native_modules \
+    libqomx_core \
     libqomx_jpegdec \
     libqomx_jpegenc \
     libqomx_jpegenc_pipe \
@@ -572,7 +577,7 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-impl-qti \
     com.qualcomm.qti.ant@1.0-impl \
     fingerprint.msm8996 \
-    vendor.qti.gnss@1.0-impl \
+    vendor.qti.gnss@3.0-impl \
     vendor.qti.hardware.alarm@1.0-impl \
     vendor.qti.hardware.soter@1.0-impl \
     lib-imsSDP \
@@ -588,7 +593,6 @@ PRODUCT_PACKAGES += \
     lib-rtpsl \
     lib-siputility \
     lib-uceservice \
-    libDRPlugin \
     libGPreqcancel \
     libGPreqcancel_svc \
     lib_fpc_tac_shared \
@@ -604,15 +608,11 @@ PRODUCT_PACKAGES += \
     libdpmqmihal \
     libdrmfs \
     libdrmtime \
-    libdrplugin_client \
-    libevent_observer \
-    libflp \
-    libgeofence \
+    libgdtap \
     libizat_client_api \
     libizat_core \
     liblbs_core \
     libloc_api_v02 \
-    libloc_ds_api \
     liblocationservice \
     liblocationservice_glue \
     liblowi_client \
@@ -624,10 +624,12 @@ PRODUCT_PACKAGES += \
     libnetmgr_rmnet_ext \
     libnlnetmgr \
     liboemaids_vendor \
+    libpdmapper \
     libpdnotifier \
     libpn548ad_fw \
     libqcmaputils \
     libqcrilFramework \
+    libqdma_file_agent \
     libqisl \
     libqrtr \
     libqsocket \
@@ -640,16 +642,15 @@ PRODUCT_PACKAGES += \
     librpmb \
     libsdm-disp-vndapis \
     libsettings \
+    libslimclient \
     libssd \
     libsystem_health_mon \
     libthermalioctl \
     libtime_genoff \
-    libulp2 \
     libwms \
     libwqe \
     libxml \
     libxtadapter \
-    libxtwifi_ulp_adaptor \
     qcrild_librilutils \
     qtibus \
     qtimutex \
@@ -659,10 +660,7 @@ PRODUCT_PACKAGES += \
     vendor.display.postproc@1.0 \
     vendor.oneplus.hardware.param@1.0_vendor \
     vendor.qti.data.factory@2.0 \
-    vendor.qti.gnss@1.0 \
-    vendor.qti.gnss@1.1 \
-    vendor.qti.gnss@1.2 \
-    vendor.qti.gnss@2.0 \
+    vendor.qti.gnss@3.0-service \
     vendor.qti.hardware.alarm@1.0 \
     vendor.qti.hardware.cacert@1.0 \
     vendor.qti.hardware.data.cne.internal.api@1.0 \
@@ -759,6 +757,7 @@ PRODUCT_PACKAGES += \
     com.qti.dpmframework \
     dpmapi \
     qcrilhook \
+    vendor.qti.gnss@3.0-service.xml \
     ATFWD-daemon \
     adpl \
     adsprpcd \
@@ -772,7 +771,6 @@ PRODUCT_PACKAGES += \
     qcrild \
     vendor.display.color@1.0-service \
     vendor.oneplus.hardware.param@1.0-service \
-    vendor.qti.gnss@1.0-service \
     vendor.qti.hardware.alarm@1.0-service \
     vendor.qti.hardware.perf@1.0-service \
     vendor.qti.hardware.soter@1.0-service \
@@ -803,6 +801,8 @@ PRODUCT_PACKAGES += \
     thermal-engine \
     time_daemon \
     xtra-daemon \
+    xtwifi-client \
+    xtwifi-inet-agent \
     dpmd
 
 PRODUCT_PACKAGES += \
