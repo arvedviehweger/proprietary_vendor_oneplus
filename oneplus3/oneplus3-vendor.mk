@@ -611,6 +611,7 @@ PRODUCT_PACKAGES += \
     libgdtap \
     libizat_client_api \
     libizat_core \
+    libjnihelper \
     liblbs_core \
     libloc_api_v02 \
     liblocationservice \
@@ -745,6 +746,7 @@ PRODUCT_PACKAGES += \
     vendor.qti.imsrtpservice@2.0 \
     vendor.qti.imsrtpservice@2.1 \
     SoterService \
+    CACertService \
     CneApp \
     IWlanService \
     TimeService \
